@@ -79,7 +79,10 @@
     color: var(--accent);
     text-decoration: none;
     letter-spacing: 0.02em;
+    white-space: nowrap;
   }
+
+  .logo-last { display: inline; }
 
   .nav-links {
     display: flex;
@@ -140,7 +143,6 @@
     background: var(--accent-dim);
   }
 
-  /* light mode — darker bar, longer */
   :root.light .section-label::after {
     width: 120px;
     background: var(--accent);
@@ -169,33 +171,26 @@
     flex-shrink: 0;
   }
 
-  
- .hero-avatar {
-    width: 153px;
-    height: 210px;
-    border-radius: 8px;
+  .hero-avatar {
+    width: 190px;
+    height: 190px;
+    border-radius: 999px;
     overflow: hidden;
     border: 1px solid var(--border-light);
   }
 
   .hero-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit:fill;
-  display: block;
-  image-rendering: -webkit-optimize-contrast; /* better downscaling in WebKit */
-  image-rendering:auto;
-  transform: translateZ(0); /* force GPU compositing */
-}
- 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-  /* dark mode avatar glow */
   :root:not(.light) .hero-avatar {
     border-color: #2a2a2a;
     box-shadow: 0 0 0 1px #2a2a2a, 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
   }
 
-  /* light mode avatar shadow */
   :root.light .hero-avatar {
     border-color: var(--border);
     box-shadow: 0 4px 20px rgba(80,50,10,0.13), 0 1px 4px rgba(80,50,10,0.08);
@@ -422,7 +417,6 @@
     overflow: hidden;
   }
 
-  /* Light mode: break out of unified border box into individual floating cards */
   :root.light .projects-list {
     background: transparent;
     border: none;
@@ -816,11 +810,13 @@
     nav { padding: 0 1.2rem; }
     .nav-links { gap: 1.2rem; }
     .nav-links li:nth-child(n+4) { display: none; }
+    .logo-last { display: none; }
     main { padding: 0 1.2rem; }
     section { padding-top: 72px; }
     .hero-name { font-size: 36px; }
     .project-card, .exp-header, .exp-body, .edu-card { padding: 20px 18px; }
     footer { padding: 20px 1.2rem; }
+    .hero-avatar { width: 100px !important; height: 100px !important; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -832,31 +828,31 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#hero">Muzamil Ali</a>
+  <a class="nav-logo" href="#hero">Muzamil<span class="logo-last"> Ali</span></a>
   <div class="nav-right">
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-    <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-      <circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/>
-      <line x1="12" y1="1" x2="12" y2="3"/>
-      <line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/>
-      <line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-  </button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
   </div>
 </nav>
 
@@ -881,7 +877,6 @@
         </div>
       </div>
 
-      <!-- Avatar — replace src with your photo e.g. src="profile.jpg" -->
       <div class="hero-avatar-wrap">
         <div class="hero-avatar">
           <img src="pp2.jpg" alt="Muzamil Ali" />
